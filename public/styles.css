@@ -1,0 +1,8 @@
+.slider .slick-arrow{
+    color: black;   
+}
+
+.slider {
+    width: 50%;
+    display: inline-block;
+}

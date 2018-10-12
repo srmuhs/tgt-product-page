@@ -61,7 +61,3 @@ class Qty extends React.Component {
 }
 
 export default withStyles(styles)(Qty);
-
-Qty.propTypes =
-    {
-    };

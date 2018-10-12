@@ -9,7 +9,6 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
     button: {
         height: '20px',
-        minHeight: '20px',
         backgroundColor: grey[200],
         color: grey[80],
         padding: '0 0',

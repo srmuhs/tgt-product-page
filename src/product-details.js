@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import red from '@material-ui/core/colors/red';
 import grey from '@material-ui/core/colors/grey';
+import PropTypes from 'prop-types';
 
 const ProductDetails = (props) => {
     const {
@@ -35,7 +36,7 @@ const ProductDetails = (props) => {
             <Grid item xs={12} style={{ margin: '5px 0 25px 0' }} >
                 <Divider />
             </Grid>
-            <Grid item xs={6} style={{ margin: '0 0 25px 0' }}>
+            <Grid item xs={6} style={{ marginBottom: '25px' }}>
                 <Qty />
             </Grid>
             <Grid container item xs={12} spacing={8}>
@@ -65,3 +66,6 @@ const ProductDetails = (props) => {
 
 export default ProductDetails;
 
+ProductDetails.propTypes = {
+    productData: PropTypes.object
+}

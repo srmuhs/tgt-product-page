@@ -8,7 +8,7 @@ const Highlights = (props) => {
         <React.Fragment>
             <Typography variant={'h5'}>product highlights</Typography>
             <ul>
-                {features.map(feature => <Typography variant={'caption'} style={{ padding: '5px 0' }}><li dangerouslySetInnerHTML={{ __html: feature }} /></Typography>)}
+                {features.map((feature, i) => <Typography key={i} variant={'caption'} style={{ padding: '5px 0' }}><li dangerouslySetInnerHTML={{ __html: feature }} /></Typography>)}
             </ul>
         </React.Fragment>
     );
