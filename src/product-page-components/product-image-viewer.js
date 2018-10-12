@@ -31,6 +31,7 @@ class ProductImageViewer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            showImageModal: false,
             activeImg: props.images[0].PrimaryImage[0].image,
             imgCollection: [props.images[0].PrimaryImage[0], ...props.images[0].AlternateImages]
         };
@@ -38,26 +39,33 @@ class ProductImageViewer extends React.Component {
 
     renderCarousel() {
         const { classes } = this.props;
+        //Currently, there is a bug in this package
+        const SlickButtonFix = ({ currentSlide, slideCount, children, ...props }) => (
+            <span {...props}>{children}</span>
+        );
         const settings = {
             dots: false,
             infinite: true,
             speed: 500,
             slidesToShow: 3,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            prevArrow: (<SlickButtonFix>< ChevronLeft /></SlickButtonFix>),
+            nextArrow: (<SlickButtonFix>< ChevronRight /></SlickButtonFix>)
         };
+
+
         return (
-            <Slider className='slider' {...settings} prevArrow={<ChevronLeft />} nextArrow={<ChevronRight />}>
+            <Slider className='slider' {...settings} >
                 {
-                    this.state.imgCollection.map(img => {
-                        return (<img className={classes.carouselImage} src={img.image} alt={img.image} onClick={() => this.setState({ activeImg: img.image })} />)
+                    this.state.imgCollection.map((img, i) => {
+                        return (<img key={i} className={classes.carouselImage} src={img.image} alt={img.image} onClick={() => this.setState({ activeImg: img.image })} />)
                     })
                 }
-            </Slider>
+            </Slider >
         )
     }
 
     render() {
-        console.log(this.state);
         return (
             <Grid container direction={'column'} spacing={8}>
                 <Grid item style={{ textAlign: 'center', flexGrow: '1', width: '100%' }}>
