@@ -1,3 +1,44 @@
+
+
+
+To Create distribution build for this project, run `npm run build`. 
+This will create a `build` folder for distribution compiled content.
+
+
+Testing Approach:
+Unit testing will be driven by Jest utilizing Enzyme for all Unit Testing.
+Integration testing would ideally be driven by Cypress testing framework(not provided). 
+
+
+
+
+Continuous Delivery Approach:
+
+1 - All feature branches, on commiting to Git Repository will trigger a pre-commit hook. This pre-commit hook will check for lint issues,
+  passing Unit Tests, and build via Drone pipeline.
+2 - If pre-commit is satisfied, New development will be considered after raising a Pull Request(PR) for said development.
+3 - After PR is approved, a merge to a QA/Test environment will happen. The PR will merge into a QA branch triggering a new Drone build to begin.
+  This qa build will also run through lint, UTs and any other stop action configuration we set up (ie. Integration testing, etc).
+4 - After QA has built successfully, and QA testing has been approved, personnel will then raise a Promotion of QA -> Production.
+5 - Merging of anything into Prod Branch will trigger a Drone build. If Drone build is success, similiar to QA, a new version of bundled code will be versioned and 
+  released to artifactory to be consumed.
+
+  **Only passing Drone builds will ever be deployed, versioned and sent to artifactory. This insures that failing drone pipelines will never be released to enviroments if failing 
+  test, stop actions are present. 
+    Advantages of Continuous Delivery - Quick release of new code, bug fixes or permission toggles. As long as automation is setup through this process, its relatively quick to 
+    push new code. Frequent deliverables also allows for bug/defect isolation, lessening consumer impact.
+
+
+
+
+
+
+
+
+
+
+------------ BELOW IS THE README FOR CREATE-REACT-APP ----------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
