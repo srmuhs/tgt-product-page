@@ -27,9 +27,9 @@ Continuous Delivery Approach:
 
   **Only passing Drone builds will ever be deployed, versioned and sent to artifactory. This insures that failing drone pipelines will never be released to environments if failing 
   tests/stop actions are present. 
-  
-    Advantages of Continuous Delivery - Quick release of new code, bug fixes or permission toggles. As long as automation is setup through this process, its relatively quick to 
-    push new code. Frequent deliverables also allows for bug/defect isolation, lessening consumer impact.
+
+Advantages of Continuous Delivery - Quick release of new code, bug fixes or permission toggles. As long as automation is setup through this process, its relatively quick to 
+push new code. Frequent deliverables also allows for bug/defect isolation, lessening consumer impact.
 
 
 
