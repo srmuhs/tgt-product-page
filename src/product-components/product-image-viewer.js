@@ -35,6 +35,8 @@ class ProductImageViewer extends React.Component {
             activeImg: props.images[0].PrimaryImage[0].image,
             imgCollection: [props.images[0].PrimaryImage[0], ...props.images[0].AlternateImages]
         };
+
+        this.toggleImageModal = this.toggleImageModal.bind(this);
     }
 
     renderCarousel() {
@@ -53,7 +55,7 @@ class ProductImageViewer extends React.Component {
             nextArrow: (<SlickButtonFix>< ChevronRight /></SlickButtonFix>)
         };
 
-
+        // USING THIRD PARTY IMAGE SLIDER, NOT SURE ABOUT THIS FRAMEWORK THOUGH FOR STABILITY, WOULDNT USE IN PRODUCTION/REAL-WORLD
         return (
             <Slider className='slider' {...settings} >
                 {
@@ -62,7 +64,11 @@ class ProductImageViewer extends React.Component {
                     })
                 }
             </Slider >
-        )
+        );
+    }
+
+    toggleImageModal() {
+        this.setState(prevState => ({ showImageModal: !prevState.showImageModal }));
     }
 
     render() {
@@ -73,18 +79,18 @@ class ProductImageViewer extends React.Component {
                 </Grid>
                 <Hidden xsDown>
                     <Grid item style={{ textAlign: 'center' }}>
-                        <IconButton onClick={() => this.setState({ showImageModal: true })}><ZoomIn /></IconButton><Typography variant={'caption'} style={{ display: 'inline-block' }}>View Larger</Typography>
+                        <IconButton onClick={this.toggleImageModal}><ZoomIn /></IconButton><Typography variant={'caption'} style={{ display: 'inline-block' }}>View Larger</Typography>
                     </Grid>
                 </Hidden>
                 <Grid item style={{ textAlign: 'center' }}>
                     {this.renderCarousel()}
                 </Grid>
                 <Modal
-                    onClose={() => this.setState({ showImageModal: false })}
+                    onClose={this.toggleImageModal}
                     open={this.state.showImageModal}>
                     <div style={{ textAlign: 'center', position: 'relative', width: '100%' }}>
                         <img style={{ width: '80%' }} src={this.state.activeImg} alt='product-img' />
-                        <IconButton style={{ top: '10px', right: '10px', position: 'absolute' }} onClick={() => this.setState({ showImageModal: false })}><Close /></IconButton>
+                        <IconButton style={{ top: '10px', right: '10px', position: 'absolute' }} onClick={this.toggleImageModal}><Close /></IconButton>
                     </div>
                 </Modal>
             </Grid>

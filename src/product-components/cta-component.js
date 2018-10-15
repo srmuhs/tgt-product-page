@@ -18,6 +18,7 @@ const styles = theme => ({
 
 const CallToAction = (props) => {
     const { classes } = props;
+    
     return (
         <Grid container spacing={8}>
             <Grid item xs={4}>

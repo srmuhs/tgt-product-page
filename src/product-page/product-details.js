@@ -1,16 +1,16 @@
 import React from 'react';
 import Divider from '@material-ui/core/Divider';
-import Pricing from './product-page-components/pricing-component';
-import Promotions from './product-page-components/promotions-component';
-import Returns from './product-page-components/returns-component';
-import Qty from './product-page-components/qty-component';
-import CallToAction from './product-page-components/cta-component';
-import Highlights from './product-page-components/highlights-component';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import red from '@material-ui/core/colors/red';
 import grey from '@material-ui/core/colors/grey';
 import PropTypes from 'prop-types';
+import Pricing from '../product-components/pricing-component';
+import Promotions from '../product-components/promotions-component';
+import Returns from '../product-components/returns-component';
+import Qty from '../product-components/qty-component';
+import CallToAction from '../product-components/cta-component';
+import Highlights from '../product-components/highlights-component';
 
 const ProductDetails = (props) => {
     const {

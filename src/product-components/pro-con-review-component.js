@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Rating from './rating-component';
+import { formatDate } from '../date-utils';
 
 const styles = theme => ({
     root: {
@@ -12,9 +13,8 @@ const styles = theme => ({
     }
 });
 const ProConReviews = (props) => {
-
     const { classes, pro, con } = props;
-    const dateOptions = { month: 'long', day: 'numeric', year: 'numeric' };
+
     return (
         <Grid container className={classes.root} style={{ padding: '8px' }}>
             <Grid item xs={12} container spacing={32}>
@@ -36,14 +36,14 @@ const ProConReviews = (props) => {
                     <Typography variant={'subtitle2'}>{pro.title}</Typography>
                     <Typography variant={'caption'}>{pro.review}</Typography>
                     <br />
-                    <Typography variant={'caption'}><b>{pro.screenName}</b> {new Date(pro.datePosted).toLocaleString('en-us', dateOptions)}</Typography>
+                    <Typography variant={'caption'}><b>{pro.screenName}</b> {formatDate(pro.datePosted, 'long')}</Typography>
                 </Grid>
                 <Grid item xs={6}>
                     <Rating rating={5} variant={'small'} />
                     <Typography variant={'subtitle2'}>{con.title}</Typography>
                     <Typography variant={'caption'}>{con.review}</Typography>
                     <br />
-                    <Typography variant={'caption'}><b>{con.screenName}</b> {new Date(con.datePosted).toLocaleString('en-us', dateOptions)}</Typography>
+                    <Typography variant={'caption'}><b>{con.screenName}</b> {formatDate(con.datePosted, 'long')}</Typography>
                 </Grid>
             </Grid>
         </Grid>

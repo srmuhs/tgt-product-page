@@ -21,8 +21,7 @@ Pricing.defaultProps = {
     priceQualifier: 'n/a'
 }
 
-Pricing.propTypes =
-    {
-        price: PropTypes.string,
-        priceQualifier: PropTypes.string
-    }
+Pricing.propTypes = {
+    price: PropTypes.string,
+    priceQualifier: PropTypes.string
+}

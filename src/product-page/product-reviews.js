@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Rating from './product-page-components/rating-component';
-import ProConReviews from './product-page-components/pro-con-review-component';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Rating from '../product-components/rating-component';
+import ProConReviews from '../product-components/pro-con-review-component';
 
 const ProductReviews = (props) => {
     const { reviews} = props;

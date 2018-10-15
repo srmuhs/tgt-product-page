@@ -40,7 +40,6 @@ Promotions.defaultProps = {
     promotions: []
 }
 
-Promotions.propTypes =
-    {
-        promotions: PropTypes.array
-    };
+Promotions.propTypes = {
+    promotions: PropTypes.array
+};

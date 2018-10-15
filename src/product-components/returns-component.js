@@ -21,7 +21,6 @@ Returns.defaultProps = {
     returnPolicy: "n/a"
 }
 
-Returns.propTypes =
-    {
-        returnPolicy: PropTypes.string
-    }
+Returns.propTypes = {
+    returnPolicy: PropTypes.string
+}
