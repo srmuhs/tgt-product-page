@@ -9,7 +9,7 @@ To run locally, clone repo and run `npm install`. This will open a localhost on 
 
 Testing Approach:
 Unit testing will be driven by Jest utilizing Enzyme for all Unit Testing. You can find an example of Jest UTing in the `/src/_tests_` folder.
-Integration testing would ideally be driven by Cypress testing framework(not provided). 
+End to End testing would ideally be driven by Cypress testing framework(not provided). 
 
 
 
