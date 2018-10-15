@@ -4,9 +4,11 @@
 To Create distribution build for this project, run `npm run build`. 
 This will create a `build` folder for distribution compiled content.
 
+To run locally, clone repo and run `npm install`. This will open a localhost on port 3001 for App inspection.
+
 
 Testing Approach:
-Unit testing will be driven by Jest utilizing Enzyme for all Unit Testing.
+Unit testing will be driven by Jest utilizing Enzyme for all Unit Testing. You can find an example of Jest UTing in the `/src/_tests_` folder.
 Integration testing would ideally be driven by Cypress testing framework(not provided). 
 
 
@@ -14,13 +16,13 @@ Integration testing would ideally be driven by Cypress testing framework(not pro
 
 Continuous Delivery Approach:
 
-1 - All feature branches, on commiting to Git Repository will trigger a pre-commit hook. This pre-commit hook will check for lint issues,
+ - 1 - All feature branches, on commiting to Git Repository will trigger a pre-commit hook. This pre-commit hook will check for lint issues,
   passing Unit Tests, and build via Drone pipeline.
-2 - If pre-commit is satisfied, New development will be considered after raising a Pull Request(PR) for said development.
-3 - After PR is approved, a merge to a QA/Test environment will happen. The PR will merge into a QA branch triggering a new Drone build to begin.
+ - 2 - If pre-commit is satisfied, New development will be considered after raising a Pull Request(PR) for said development.
+ - 3 - After PR is approved, a merge to a QA/Test environment will happen. The PR will merge into a QA branch triggering a new Drone build to begin.
   This qa build will also run through lint, UTs and any other stop action configuration we set up (ie. Integration testing, etc).
-4 - After QA has built successfully, and QA testing has been approved, personnel will then raise a Promotion of QA -> Production.
-5 - Merging of anything into Prod Branch will trigger a Drone build. If Drone build is success, similiar to QA, a new version of bundled code will be versioned and 
+ - 4 - After QA has built successfully, and QA testing has been approved, personnel will then raise a Promotion of QA -> Production.
+ - 5 - Merging of anything into Prod Branch will trigger a Drone build. If Drone build is success, similiar to QA, a new version of bundled code will be versioned and 
   released to artifactory to be consumed.
 
   **Only passing Drone builds will ever be deployed, versioned and sent to artifactory. This insures that failing drone pipelines will never be released to enviroments if failing 
